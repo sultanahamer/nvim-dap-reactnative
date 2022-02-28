@@ -66,13 +66,12 @@ export class ForkedAppWorker implements IDebuggeeWorker {
         }
     }
 
-    public async start(): Promise<number> {
+    public async start(port: Number): Promise<number> {
         console.log('starting forked worker');
         const scriptToRunPath = path.resolve(
             this.sourcesStoragePath,
             ScriptImporter.DEBUGGER_WORKER_FILENAME,
         );
-        const port = 35000; //TODO: standardize this later
 
         // Note that we set --inspect-brk flag to pause the process on the first line - this is
         // required for debug adapter to set the breakpoints BEFORE the debuggee has started.
@@ -156,7 +155,6 @@ export class ForkedAppWorker implements IDebuggeeWorker {
         const promise = (async () => {
             await this.workerLoaded;
 
-            console.log('Message from rn:', rnMessage.method);
             if (rnMessage.method !== "executeApplicationScript") {
                 // Before sending messages, make sure that the app script executed
                 await this.bundleLoaded;

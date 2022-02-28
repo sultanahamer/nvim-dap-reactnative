@@ -6,15 +6,15 @@ import { IAttachRequestArgs } from "./debugSessionBase";
 export class JsDebugConfigAdapter {
     public static createDebuggingConfigForPureRN(
         attachArgs: Partial<IAttachRequestArgs>,
-        cdpProxyPort: number,
+        nodeDebugPort: number,
         sessionId: string,
     ): any {
-        return Object.assign({}, JsDebugConfigAdapter.getExistingExtraArgs(attachArgs), {
+        return Object.assign({}, attachArgs, JsDebugConfigAdapter.getExistingExtraArgs(attachArgs), {
             type: "pwa-node",
             request: "attach",
             name: "Attach",
             continueOnAttach: true,
-            port: cdpProxyPort,
+            nodeDebugPort: nodeDebugPort,
             // The unique identifier of the debug session. It is used to distinguish React Native extension's
             // debug sessions from other ones. So we can save and process only the extension's debug sessions
             // in vscode.debug API methods "onDidStartDebugSession" and "onDidTerminateDebugSession".
@@ -26,7 +26,6 @@ export class JsDebugConfigAdapter {
 
     public static createDebuggingConfigForRNHermes(
         attachArgs: IAttachRequestArgs,
-        cdpProxyPort: number,
         sessionId: string,
     ): any {
         return Object.assign({}, JsDebugConfigAdapter.getExistingExtraArgs(attachArgs), {
@@ -34,7 +33,6 @@ export class JsDebugConfigAdapter {
             request: "attach",
             name: "Attach",
             continueOnAttach: true,
-            port: cdpProxyPort,
             // The unique identifier of the debug session. It is used to distinguish React Native extension's
             // debug sessions from other ones. So we can save and process only the extension's debug sessions
             // in vscode.debug API methods "onDidStartDebugSession" and "onDidTerminateDebugSession".

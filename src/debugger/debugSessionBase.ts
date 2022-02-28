@@ -61,6 +61,7 @@ export interface IAttachRequestArgs
     port: number;
     url?: string;
     useHermesEngine: boolean;
+    nodeDebugPort: number;
     address?: string;
     trace?: string;
     skipFiles?: [];

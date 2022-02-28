@@ -6,7 +6,8 @@
  */
 import * as path from "path";
 import * as mkdirp from "mkdirp";
-import { getProjectRoot } from "../../standalone";
+import { getProjectRoot, getSourcesStoragePath } from "../../standalone";
+import { Logger } from "vscode-debugadapter";
 
 export enum LogLevel {
     None = 0,
@@ -30,7 +31,7 @@ export interface ILogger {
 
 export class LogHelper {
     public static get LOG_LEVEL(): LogLevel {
-        return getLogLevel();
+        return LogLevel.Info; //TODO: pick this up later
     }
 }
 
@@ -40,7 +41,7 @@ export interface DevLogToFileSettings {
 
 export function getLoggingOptions(): DevLogToFileSettings {
     return {
-        LogsDirectory: process.env.REACT_NATIVE_TOOLS_LOGS_DIR,
+        LogsDirectory: getSourcesStoragePath(), //TODO: update this later
     };
 }
 /**

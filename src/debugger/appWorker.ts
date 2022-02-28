@@ -28,7 +28,7 @@ export interface RNAppMessage {
 }
 
 export interface IDebuggeeWorker {
-    start(): Promise<any>;
+    start(port: Number): Promise<any>;
     stop(): void;
     postMessage(message: RNAppMessage): void;
 }
@@ -207,6 +207,7 @@ function fetch(url) {
 `;
 
     private packagerAddress: string;
+    private nodeDebugPort: number;
     private packagerPort: number;
     private sourcesStoragePath: string;
     private projectRootPath: string;
@@ -230,6 +231,7 @@ function fetch(url) {
         super();
         this.packagerAddress = attachRequestArguments.address || "localhost";
         this.packagerPort = attachRequestArguments.port;
+        this.nodeDebugPort = attachRequestArguments.nodeDebugPort;
         this.packagerRemoteRoot = attachRequestArguments.remoteRoot;
         this.packagerLocalRoot = attachRequestArguments.localRoot;
         this.debuggerWorkerUrlPath = attachRequestArguments.debuggerWorkerUrlPath;
@@ -327,7 +329,7 @@ function fetch(url) {
             this.packagerLocalRoot,
         );
         logger.verbose("A new app worker lifetime was created.");
-        const startedEvent = await this.singleLifetimeWorker.start();
+        const startedEvent = await this.singleLifetimeWorker.start(this.nodeDebugPort);
         this.emit("connected", startedEvent);
     }
 
