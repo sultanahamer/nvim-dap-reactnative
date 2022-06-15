@@ -1,16 +1,4 @@
 <h1 align="center">Welcome to NVIM Dap React Native 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.9.1-blue.svg?cacheSeconds=2592000" />
-  <a href="https://github.com/microsoft/vscode-react-native#readme" target="_blank">
-    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
-  </a>
-  <a href="https://github.com/microsoft/vscode-react-native/graphs/commit-activity" target="_blank">
-    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
-  </a>
-  <a href="https://github.com/microsoft/vscode-react-native/blob/master/LICENSE" target="_blank">
-    <img alt="License: %reactNative.license%" src="https://img.shields.io/github/license/sultanahamer/NVIM Dap React Native" />
-  </a>
-</p>
 
 > Standalone debug adapter protocol for react native. Hopefully won't have any specific editor/ide stuff
 
