@@ -78,9 +78,9 @@ dap.configurations.typescriptreact = {
 4. Now run the app in emulator, once it is running put the app into **debug** mode. Once in debug mode you should see the following output in the terminal running the debugger:
 <img src="./connected.png" alt='Connected to the debugger'>
 5. It would wait on a white screen for debugger to attach, if its not a white empty screen then something didn't go well
-5. Now in neovim, setup your breakpoints and run dap continue `:lua require('dap').continue()`.
-6. It should start with a debug waiting on some unknown location, ignore it and do continue `:lua require('dap').continue()`, it will again stop on another unknown location, do continue. Now it should start hitting the app's breakpoints
-7. When you finish debugging, if you make code changes, don't just refresh app, close the current debug session with `:lua require('dap').close()` Open emulator and hit rr, it will refresh and wait on white screen Do dap_continue or runlast and you are good to go
+6. Now in neovim, setup your breakpoints and run dap continue `:lua require('dap').continue()`.
+7. It should start with a debug waiting on some unknown location, ignore it and do continue `:lua require('dap').continue()`, it will again stop on another unknown location, do continue. Now it should start hitting the app's breakpoints
+8. When you finish debugging, if you make code changes, don't just refresh app, close the current debug session with `:lua require('dap').close()` Open emulator and hit rr, it will refresh and wait on white screen Do dap_continue or runlast and you are good to go
 
 ## Author
 
