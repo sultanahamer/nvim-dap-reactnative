@@ -17,7 +17,7 @@
 ## Install
 
 ```sh
-git clone git@github.com:jim-at-jibba/nvim-dap-reactnative.git
+git clone git@github.com:sultanahamer/nvim-dap-reactnative.git
 ```
 
 ## Run the debugger
