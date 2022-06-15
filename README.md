@@ -52,7 +52,7 @@ M.config = {
 dap.adapters.node2 = {
 	type = "executable",
 	command = "node",
-	args = { os.getenv("HOME") .. "/code/utils/vscode-node-debug2/out/src/nodeDebug.js" },
+	args = { os.getenv("HOME") .. "/vscode-node-debug2/out/src/nodeDebug.js" },
 }
 
 
