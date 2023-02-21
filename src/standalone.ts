@@ -8,7 +8,7 @@ import * as nls from "vscode-nls";
 import mkdirp from "mkdirp";
 
 const localize = nls.loadMessageBundle();
-const pwd = "/Users/sultanm/Projects/react-native-app/rnapp/";
+const pwd = process.env.RN_DEBBUGER_WD as string;
 export const getProjectRoot = () => pwd
 const sourcesStoragePath = path.join(getProjectRoot(), ".vscode", ".react");
 export const getSourcesStoragePath = () => sourcesStoragePath
@@ -32,7 +32,11 @@ const logger = console;
 const doit = async () => {
 
   logger.log(
-    localize("StartingDebuggerAppWorker", "Starting debugger app worker."),
+    localize(
+      "StartingDebuggerAppWorker",
+      "Starting debugger app worker on directory: {0}",
+      pwd,
+    ),
   );
 
   // Create folder if not exist to avoid problems if
