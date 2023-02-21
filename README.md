@@ -62,7 +62,7 @@ dap.configurations.typescriptreact = {
 2. Open src/standalone.ts and update your project directory paths
 3. Run `tsc` from the debuggers directory. You will need to rerun `tsc` every time you change the project path.
 4. Start react native metro bundler and make sure its running on 8081
-3. Run `node src/standalone.js`
+3. Run `RN_DEBBUGER_WD=<project_directory> node src/standalone.js`
 4. Now run the app in emulator, once it is running put the app into **debug** mode. Once in debug mode you should see the output in the image below in the terminal running the debugger
 5. It would wait on a white screen for debugger to attach, if its not a white empty screen then something didn't go well
 6. Now in neovim, setup your breakpoints and run dap continue `:lua require('dap').continue()`.
