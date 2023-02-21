@@ -59,15 +59,14 @@ dap.configurations.typescriptreact = {
 }
 
 ```
-2. Open src/standalone.ts and update your project directory paths
-3. Run `tsc` from the debuggers directory. You will need to rerun `tsc` every time you change the project path.
-4. Start react native metro bundler and make sure its running on 8081
-3. Run `node src/standalone.js`
-4. Now run the app in emulator, once it is running put the app into **debug** mode. Once in debug mode you should see the output in the image below in the terminal running the debugger
-5. It would wait on a white screen for debugger to attach, if its not a white empty screen then something didn't go well
-6. Now in neovim, setup your breakpoints and run dap continue `:lua require('dap').continue()`.
-7. It should start with a debug waiting on some unknown location, ignore it and do continue `:lua require('dap').continue()`, it will again stop on another unknown location, do continue. Now it should start hitting the app's breakpoints
-8. When you finish debugging, if you make code changes, don't just refresh app, close the current debug session with `:lua require('dap').close()` Open emulator and hit rr, it will refresh and wait on white screen Do dap_continue or runlast and you are good to go
+2. Run `tsc` from the debuggers directory inside this project's directory.
+3. Start react native metro bundler and make sure its running on 8081
+4. Run `RN_DEBBUGER_WD=<project_directory> node src/standalone.js`
+5. Now run the app in emulator, once it is running put the app into **debug** mode. Once in debug mode you should see the output in the image below in the terminal running the debugger
+6. It would wait on a white screen for debugger to attach, if its not a white empty screen then something didn't go well
+7. Now in neovim, setup your breakpoints and run dap continue `:lua require('dap').continue()`.
+8. It should start with a debug waiting on some unknown location, ignore it and do continue `:lua require('dap').continue()`, it will again stop on another unknown location, do continue. Now it should start hitting the app's breakpoints
+9. When you finish debugging, if you make code changes, don't just refresh app, close the current debug session with `:lua require('dap').close()` Open emulator and hit rr, it will refresh and wait on white screen Do dap_continue or runlast and you are good to go
 
 ### Debugger output when connected
 <img src="./connected.png" alt='Connected to the debugger'>
